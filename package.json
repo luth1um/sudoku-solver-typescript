@@ -13,7 +13,15 @@
     "preversion": "yarn build",
     "postversion": "git push --follow-tags"
   },
-  "repository": "git@github.com:luth1um/sudoku-solver-typescript.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luth1um/sudoku-solver-typescript"
+  },
+  "keywords": [
+    "sudoku",
+    "puzzle",
+    "solver"
+  ],
   "author": "luthium",
   "license": "MIT",
   "devDependencies": {
