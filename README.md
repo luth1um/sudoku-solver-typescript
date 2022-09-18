@@ -1,3 +1,5 @@
+![Build](https://github.com/luth1um/sudoku-solver-typescript/actions/workflows/build_and_test.yml/badge.svg?branch=main)
+
 # 🤔 Sudoku Solver
 
 A [Sudoku](https://en.wikipedia.org/wiki/Sudoku) solver written in TypeScript. To solve a Sudoku puzzle, simply call `solveSudoku(sudoku: number[][])`. The function applies optimized [backtracking](https://en.wikipedia.org/wiki/Backtracking) for solving puzzles. If you want to see the solver in action, you can visit [this website](https://luth1um.github.io/sudoku-solver-angular/).
