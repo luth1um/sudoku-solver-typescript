@@ -2,6 +2,7 @@
   "name": "fast-sudoku-solver",
   "version": "1.0.3",
   "description": "A fast Sudoku solver written in TypeScript.",
+  "type": "module",
   "main": "dist/index.js",
   "files": [
     "dist"
