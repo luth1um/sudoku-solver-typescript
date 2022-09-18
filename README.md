@@ -1,6 +1,6 @@
 # 🤔 Sudoku Solver
 
-A [Sudoku](https://en.wikipedia.org/wiki/Sudoku) solver written in TypeScript. To solve a Sudoku puzzle, simply call `solveSudoku(sudoku: number[][])`. The function applies optimized [backtracking](https://en.wikipedia.org/wiki/Backtracking) for solving puzzles.
+A [Sudoku](https://en.wikipedia.org/wiki/Sudoku) solver written in TypeScript. To solve a Sudoku puzzle, simply call `solveSudoku(sudoku: number[][])`. The function applies optimized [backtracking](https://en.wikipedia.org/wiki/Backtracking) for solving puzzles. If you want to see the solver in action, you can visit [this website](https://luth1um.github.io/sudoku-solver-angular/).
 
 The solver expects as argument a 9x9 `number` array where an entry is either an integer between `1` and `9` (in case the entry is given), or `-1` (in case the entry is unknown and needs to be calculated the solver).
 
