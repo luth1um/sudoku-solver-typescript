@@ -1,0 +1,9 @@
+{
+  "name": "fast-sudoku-solver",
+  "version": "1.0.0",
+  "description": "A fast Sudoku solver written in TypeScript.",
+  "main": "index.js",
+  "repository": "git@github.com:luth1um/sudoku-solver-typescript.git",
+  "author": "luth1um <52032867+luth1um@users.noreply.github.com>",
+  "license": "MIT"
+}
