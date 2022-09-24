@@ -1,4 +1,4 @@
-import { solveSudokuPuzzle } from './sudoku-solver';
+import { solveSudokuPuzzle } from './sudoku-solver/sudoku-solver';
 
 /**
  * Solves Sudoku puzzles. The first entry of the returned array is *false* if the Sudoku puzzle is not solvable.

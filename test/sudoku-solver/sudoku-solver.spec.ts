@@ -1,4 +1,4 @@
-import { solveSudokuPuzzle } from '../src/sudoku-solver';
+import { solveSudokuPuzzle } from '../../src/sudoku-solver/sudoku-solver';
 
 test('Sudoku solver should solve a valid Sudoku puzzle correctly', () => {
   const sudoku: number[][] = [
@@ -68,6 +68,35 @@ test('Sudoku solver should solve the empty Sudoku puzzle correctly', () => {
     [9, 6, 8, 3, 4, 1, 5, 7, 2],
   ];
   const result = solveSudokuPuzzle(emptySudoku);
+  expect(result[0]).toEqual(true);
+  expect(result[1]).toEqual(correctSolution);
+});
+
+test('Sudoku solver should return the input puzzle in case the input is already completed', () => {
+  const sudoku: number[][] = [
+    [7, 3, 5, 6, 1, 4, 8, 9, 2],
+    [8, 4, 2, 9, 7, 3, 5, 6, 1],
+    [9, 6, 1, 2, 8, 5, 3, 7, 4],
+    [2, 8, 6, 3, 4, 9, 1, 5, 7],
+    [4, 1, 3, 8, 5, 7, 9, 2, 6],
+    [5, 7, 9, 1, 2, 6, 4, 3, 8],
+    [1, 5, 7, 4, 9, 2, 6, 8, 3],
+    [6, 9, 4, 7, 3, 8, 2, 1, 5],
+    [3, 2, 8, 5, 6, 1, 7, 4, 9],
+  ];
+  const correctSolution: number[][] = [
+    [7, 3, 5, 6, 1, 4, 8, 9, 2],
+    [8, 4, 2, 9, 7, 3, 5, 6, 1],
+    [9, 6, 1, 2, 8, 5, 3, 7, 4],
+    [2, 8, 6, 3, 4, 9, 1, 5, 7],
+    [4, 1, 3, 8, 5, 7, 9, 2, 6],
+    [5, 7, 9, 1, 2, 6, 4, 3, 8],
+    [1, 5, 7, 4, 9, 2, 6, 8, 3],
+    [6, 9, 4, 7, 3, 8, 2, 1, 5],
+    [3, 2, 8, 5, 6, 1, 7, 4, 9],
+  ];
+  expect(sudoku).toEqual(correctSolution); // assumption
+  const result = solveSudokuPuzzle(sudoku);
   expect(result[0]).toEqual(true);
   expect(result[1]).toEqual(correctSolution);
 });
