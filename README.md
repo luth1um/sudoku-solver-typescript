@@ -2,11 +2,16 @@
 
 # 🤔 Sudoku Solver
 
-A [Sudoku](https://en.wikipedia.org/wiki/Sudoku) solver written in TypeScript. To solve a Sudoku puzzle, simply call `solveSudoku(sudoku: number[][])`. The function applies optimized [backtracking](https://en.wikipedia.org/wiki/Backtracking) for solving puzzles. If you want to see the solver in action, you can visit [this website](https://luth1um.github.io/sudoku-solver-angular/).
+A [Sudoku](https://en.wikipedia.org/wiki/Sudoku) solver written in TypeScript. The solver applies optimized [backtracking](https://en.wikipedia.org/wiki/Backtracking) for solving puzzles. If you want to see the solver in action, you can visit [this website](https://luth1um.github.io/sudoku-solver-angular/).
 
 The solver expects as argument a 9x9 `number` array where an entry is either an integer between `1` and `9` (in case the entry is given), or `-1` (in case the entry is unknown and needs to be calculated by the solver).
 
-As a result, the solver returns an array `[solvable: boolean, solution: number[][]]`. Here, `solvable` indicates whether the Sudoku puzzle is solvable or not, and `solution` is a valid solution for the Sudoku puzzle (if the puzzle is solvable).
+# 🚀 Functions
+
+Currently, the solver provides the following functions:
+
+- `solveSudoku(sudoku: number[][])`: Solves a Sudoku puzzle. The function returns an array `[solvable: boolean, solution: number[][]]`. Here, `solvable` indicates whether the Sudoku puzzle is solvable or not, and `solution` is a valid solution for the Sudoku puzzle (if the puzzle is solvable).
+- `nextNumber(sudoku: number[][])`: Calculates the next number for a Sudoku puzzle. The function returns whether the puzzle _isSolvable_, and it returns the _row_, the _column_, and the _entry_ itself for the next number. In particular, the function returns the entry for the field with the fewest number of possible entries. For instance, if there is a field with 7 possible entries and another field with only 2 possible entries, a correct entry for the latter is returned. **NOTE:** If the Sudoku puzzle is already completely solved, this function returns value _-1_ for _row_, _column_, and _entry_.
 
 # 🔍 Input Validation
 
