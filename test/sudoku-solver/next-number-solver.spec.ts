@@ -74,7 +74,7 @@ test('The next-number solver should return {true, -1, -1, -1} in case the input 
 });
 
 test('Repeated calls to the next-number solver should eventually result in a correctly and completely solved Sudoku puzzle', () => {
-  let sudoku: number[][] = [
+  const sudoku: number[][] = [
     [-1, -1, -1, -1, -1, 4, -1, 9],
     [8, -1, 2, 9, 7, -1, -1, -1, -1],
     [9, -1, 1, 2, -1, -1, 3, -1, -1],
