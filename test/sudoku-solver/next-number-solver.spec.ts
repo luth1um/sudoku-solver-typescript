@@ -2,7 +2,7 @@ import { solveNextNumber } from '../../src/sudoku-solver/next-number-solver';
 
 test('The next-number solver should return the correct next number', () => {
   const sudoku: number[][] = [
-    [-1, -1, -1, -1, -1, 4, -1, 9],
+    [-1, -1, -1, -1, -1, 4, -1, 9, -1],
     [8, -1, 2, 9, 7, -1, -1, -1, -1],
     [9, -1, 1, 2, -1, -1, 3, -1, -1],
     [-1, -1, -1, -1, 4, 9, 1, 5, 7],
