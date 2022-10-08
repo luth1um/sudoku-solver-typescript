@@ -4,7 +4,7 @@
 
 A [Sudoku](https://en.wikipedia.org/wiki/Sudoku) solver written in TypeScript. The solver applies optimized [backtracking](https://en.wikipedia.org/wiki/Backtracking) for solving puzzles. If you want to see the solver in action, you can visit [this website](https://luth1um.github.io/sudoku-solver-angular/).
 
-The solver expects as argument a 9x9 `number` array where an entry is either an integer between `1` and `9` (in case the entry is given), or `-1` (in case the entry is unknown and needs to be calculated by the solver).
+The solver expects as argument a 9x9 `number` array where an entry is either an integer between `1` and `9` (in case the entry is known), or `-1` (in case the entry is unknown and needs to be calculated by the solver).
 
 # 🚀 Functions
 
@@ -17,7 +17,7 @@ Currently, the solver provides the following functions:
 
 Note, that the solver currently does not validate Sudoku puzzles. Instead, the solver expects the following properties for inputs:
 
-- The input is a 9x9 `number[][]` where each entry is an integer between `1` and `9`, or `-1` (see above).
+- The input is a 9x9 `number[][]` array where each entry is an integer between `1` and `9`, or `-1` (see above).
 - Each row contains every value between `1` and `9` **at most** once.
-- Each column contains every value between `1` and `9` **at mos** once.
+- Each column contains every value between `1` and `9` **at most** once.
 - Each 3x3 box contains every value between `1` and `9` **at most** once.
