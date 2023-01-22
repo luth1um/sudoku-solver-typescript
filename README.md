@@ -21,3 +21,8 @@ Note, that the solver currently does not validate Sudoku puzzles. Instead, the s
 - Each row contains every value between `1` and `9` **at most** once.
 - Each column contains every value between `1` and `9` **at most** once.
 - Each 3x3 box contains every value between `1` and `9` **at most** once.
+
+# 🔗 Links
+
+- Sudoku solver on [GitHub](https://github.com/luth1um/sudoku-solver-typescript)
+- Sudoku solver package on [npm](https://www.npmjs.com/package/fast-sudoku-solver)
