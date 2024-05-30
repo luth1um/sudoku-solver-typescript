@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "lint": "eslint . --fix --max-warnings 0",
-    "format": "prettier --write \"./**/*.{js,json,md,ts}\"",
+    "format": "prettier --write \"./**/*.{js,json,md,ts,yaml,yml}\"",
     "test": "jest",
     "clean": "rimraf dist",
     "prebuild": "yarn clean && yarn lint",
@@ -49,6 +49,6 @@
       "prettier --write",
       "eslint --fix --max-warnings 0"
     ],
-    "*.{json,md}": "prettier --write"
+    "*.{json,md,yaml,yml}": "prettier --write"
   }
 }
