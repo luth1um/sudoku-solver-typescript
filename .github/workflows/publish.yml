@@ -1,0 +1,47 @@
+name: Publish
+
+on:
+  workflow_run:
+    workflows: [Build and Test]
+    types: [completed]
+    branches: [release]
+
+env:
+  HUSKY: 0
+
+permissions:
+  id-token: write
+
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ⚙️
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies ⚙️
+        run: yarn --immutable
+
+      - name: Build project 🔧
+        run: yarn build
+
+      - name: Generate archive 🏛️
+        run: yarn pack --filename package.tgz
+
+      - name: Publish 📰
+        run: npm publish package.tgz --provenance --tag latest --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - run: echo 'The triggering workflow failed'
