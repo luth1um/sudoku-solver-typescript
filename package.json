@@ -31,18 +31,18 @@
   "author": "luthium",
   "license": "MIT",
   "devDependencies": {
-    "@types/jest": "29.5.12",
-    "eslint": "9.9.1",
+    "@types/jest": "29.5.13",
+    "eslint": "9.11.1",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-prettier": "5.2.1",
-    "husky": "9.1.5",
+    "husky": "9.1.6",
     "jest": "29.7.0",
     "lint-staged": "15.2.10",
     "prettier": "3.3.3",
     "rimraf": "6.0.1",
     "ts-jest": "29.2.5",
-    "typescript": "5.5.4",
-    "typescript-eslint": "8.4.0"
+    "typescript": "5.6.2",
+    "typescript-eslint": "8.7.0"
   },
   "lint-staged": {
     "*.{ts,js}": [
