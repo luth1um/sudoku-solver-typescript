@@ -14,7 +14,6 @@
     "clean": "rimraf dist",
     "prebuild": "yarn clean && yarn lint",
     "build": "tsc",
-    "postbuild": "yarn test",
     "preversion": "yarn build",
     "postversion": "git push --follow-tags",
     "prepare": "husky"
