@@ -12,9 +12,8 @@
     "format": "prettier --write \"./**/*.{js,json,md,ts,yaml,yml}\"",
     "test": "jest",
     "clean": "rimraf dist",
-    "prebuild": "yarn clean && yarn lint",
     "build": "tsc",
-    "preversion": "yarn build",
+    "preversion": "pnpm clean && pnpm build",
     "postversion": "git push --follow-tags",
     "prepare": "husky"
   },

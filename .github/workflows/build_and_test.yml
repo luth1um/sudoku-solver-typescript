@@ -16,19 +16,31 @@ jobs:
       - name: Checkout 🛎
         uses: actions/checkout@v5
 
+      - name: Setup pnpm 📦
+        uses: pnpm/action-setup@v4
+        with:
+          version: '10'
+
       - name: Setup Node.js ⚙️
         uses: actions/setup-node@v5
         with:
-          node-version: 24
+          node-version: '24'
+          cache: 'pnpm'
 
-      - name: Install 🕝
-        run: yarn --immutable
+      - name: Install dependencies 🕝
+        run: pnpm install --frozen-lockfile
+
+      - name: Clean-up build directory 🧹
+        run: pnpm clean
+
+      - name: Check formatting 📋
+        run: pnpm prettier --check .
 
       - name: Lint 🧐
-        run: yarn lint
+        run: pnpm eslint . --max-warnings 0
 
       - name: Build 🔧
-        run: yarn build
+        run: pnpm build
 
       - name: Test 🧪
-        run: yarn test
+        run: pnpm test

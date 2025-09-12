@@ -19,21 +19,32 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v5
+        with:
+          ref: 'release'
+
+      - name: Setup pnpm 📦
+        uses: pnpm/action-setup@v4
+        with:
+          version: '10'
 
       - name: Setup Node.js ⚙️
         uses: actions/setup-node@v5
         with:
-          node-version: 24
+          node-version: '24'
+          cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Install dependencies ⚙️
-        run: yarn --immutable
+      - name: Install dependencies 🕝
+        run: pnpm install --frozen-lockfile
+
+      - name: Clean-up build directory 🧹
+        run: pnpm clean
 
       - name: Build project 🔧
-        run: yarn build
+        run: pnpm build
 
       - name: Generate archive 🏛️
-        run: yarn pack --filename package.tgz
+        run: pnpm pack --out package.tgz
 
       - name: Publish 📰
         run: npm publish package.tgz --provenance --tag latest --access public
