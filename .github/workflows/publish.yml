@@ -47,9 +47,7 @@ jobs:
         run: pnpm pack --out package.tgz
 
       - name: Publish 📰
-        run: npm publish package.tgz --provenance --tag latest --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish package.tgz --tag latest --access public
 
   on-failure:
     runs-on: ubuntu-latest
