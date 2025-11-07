@@ -13,8 +13,6 @@
     "test": "jest",
     "clean": "rimraf dist",
     "build": "tsc",
-    "preversion": "pnpm clean && pnpm build",
-    "postversion": "git push --follow-tags",
     "prepare": "husky"
   },
   "repository": {
