@@ -1,4 +1,4 @@
-![Build](https://github.com/luth1um/sudoku-solver-typescript/actions/workflows/build_and_test.yml/badge.svg?branch=main)
+[![Pipeline](https://github.com/luth1um/sudoku-solver-typescript/actions/workflows/pipeline.yml/badge.svg)](https://github.com/luth1um/sudoku-solver-typescript/actions/workflows/pipeline.yml)
 
 # 🤔 Sudoku Solver
 
