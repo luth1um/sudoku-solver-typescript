@@ -1,0 +1,140 @@
+name: CI pipeline
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '0 8 * * 6' # every Saturday at 8:00 UTC
+  workflow_dispatch:
+
+env:
+  HUSKY: 0
+  PNPM_VERSION: '10'
+  NODE_VERSION: '24'
+  BUILD_ARTIFACT_NAME: 'sudoku-solver-build-output'
+  BUILD_ARTIFACT_FOLDER: 'dist'
+
+jobs:
+  # Check linting and formatting
+  static-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 #v5.0.0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 #v4.2.0
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 #v6.0.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Linting
+        run: pnpm eslint . --max-warnings 0
+
+      - name: Check formatting
+        run: pnpm prettier --check .
+
+  # Build the project
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 #v5.0.0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 #v4.2.0
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 #v6.0.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Clean-up of the output directory for build
+        run: pnpm clean
+
+      - name: Build the project
+        run: pnpm build
+
+      - name: Upload build artifact
+        if: github.ref == 'refs/heads/release' # build artifact is only needed for deployment
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 #v5.0.0
+        with:
+          name: ${{ env.BUILD_ARTIFACT_NAME }}
+          path: ${{ env.BUILD_ARTIFACT_FOLDER }}
+          if-no-files-found: 'error'
+          retention-days: 1
+
+  # Run unit tests
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 #v5.0.0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 #v4.2.0
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 #v6.0.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run unit tests
+        run: pnpm test
+
+  # Publish to npmjs
+  deploy-gh-pages:
+    needs:
+      - static-analysis
+      - build
+      - test
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    if: github.ref == 'refs/heads/release'
+    concurrency:
+      group: publish_npmjs
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 #v5.0.0
+
+      - name: Download build artifact
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 #v5.0.0
+        with:
+          name: ${{ env.BUILD_ARTIFACT_NAME }}
+          path: ${{ env.BUILD_ARTIFACT_FOLDER }}
+
+      - name: List downloaded artifact files
+        run: |
+          echo "Contents of ${{ env.BUILD_ARTIFACT_FOLDER }}:"
+          ls -R "${{ env.BUILD_ARTIFACT_FOLDER }}"
+
+      - name: Generate archive
+        run: pnpm pack --out package.tgz
+
+      - name: Publish
+        run: npm publish package.tgz --tag latest --access public
