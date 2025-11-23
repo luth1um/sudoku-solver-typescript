@@ -40,7 +40,7 @@ export function solveNextNumber(sudoku: number[][]): NextNumberResult {
         return { isSolvable: solveNextNumber(clone).isSolvable, row: i, column: j, entry: possibleEntries[0] };
       }
 
-      // multiple possible entries? find field with lowest number of possibilities
+      // multiple possible entries? find field with the lowest number of possibilities
       if (possibleEntries.length < minNumberOfPossibleEntries) {
         minNumberOfPossibleEntries = possibleEntries.length;
         rowMinNumber = i;
@@ -49,10 +49,10 @@ export function solveNextNumber(sudoku: number[][]): NextNumberResult {
       }
     }
   }
-  // if arrived here: try out as many possibilities as needed for field with lowest number of possibilities
+  // if arrived here: try out as many possibilities as needed for field with the lowest number of possibilities
   const clone = cloneSudoku(sudoku);
-  for (let i = 0; i < possibleEntriesMinNumber.length; i++) {
-    clone[rowMinNumber][columnMinNumber] = possibleEntriesMinNumber[i];
+  for (const possibleEntry of possibleEntriesMinNumber) {
+    clone[rowMinNumber][columnMinNumber] = possibleEntry;
     const result: NextNumberResult = solveNextNumber(clone);
     if (!result.isSolvable) {
       continue;
@@ -61,7 +61,7 @@ export function solveNextNumber(sudoku: number[][]): NextNumberResult {
       isSolvable: result.isSolvable,
       row: rowMinNumber,
       column: columnMinNumber,
-      entry: possibleEntriesMinNumber[i],
+      entry: possibleEntry,
     };
   }
 

@@ -94,8 +94,8 @@ export function allRowsValid(sudoku: number[][]): boolean {
       numbersUsed[entry - 1] = true;
     }
     // check if every number was used exactly once
-    for (let index = 0; index < numbersUsed.length; index++) {
-      if (!numbersUsed[index]) {
+    for (const isNumberUsed of numbersUsed) {
+      if (!isNumberUsed) {
         return false;
       }
     }
@@ -119,8 +119,8 @@ export function allColumnsValid(sudoku: number[][]): boolean {
       numbersUsed[entry - 1] = true;
     }
     // check if every number was used exactly once
-    for (let index = 0; index < numbersUsed.length; index++) {
-      if (!numbersUsed[index]) {
+    for (const isNumberUsed of numbersUsed) {
+      if (!isNumberUsed) {
         return false;
       }
     }
@@ -144,8 +144,8 @@ export function allBoxesValid(sudoku: number[][]): boolean {
       numbersUsed[entry - 1] = true;
     }
     // check if every number was used exactly once
-    for (let index = 0; index < numbersUsed.length; index++) {
-      if (!numbersUsed[index]) {
+    for (const isNumberUsed of numbersUsed) {
+      if (!isNumberUsed) {
         return false;
       }
     }
