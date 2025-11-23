@@ -8,10 +8,10 @@
 export function getPossibleEntries(sudoku: number[][], row: number, column: number): number[] {
   // check inputs
   if (row < 0 || row > 8) {
-    throw 'row ' + row + ' not existing';
+    throw Error('row ' + String(row) + ' not existing');
   }
   if (column < 0 || column > 8) {
-    throw 'column ' + column + ' not existing';
+    throw Error('column ' + String(column) + ' not existing');
   }
 
   // return entry if the field already has a number
@@ -161,7 +161,7 @@ export function allBoxesValid(sudoku: number[][]): boolean {
 export function getFirstRowOfBox(boxNumber: number): number {
   // check inputs
   if (boxNumber < 0 || boxNumber > 8) {
-    throw 'boxNumber ' + boxNumber + ' not existing';
+    throw Error('boxNumber ' + String(boxNumber) + ' not existing');
   }
 
   // return result
@@ -182,7 +182,7 @@ export function getFirstRowOfBox(boxNumber: number): number {
 export function getFirstColumnOfBox(boxNumber: number): number {
   // check inputs
   if (boxNumber < 0 || boxNumber > 8) {
-    throw 'boxNumber ' + boxNumber + ' not existing';
+    throw Error('boxNumber ' + String(boxNumber) + ' not existing');
   }
 
   // return result

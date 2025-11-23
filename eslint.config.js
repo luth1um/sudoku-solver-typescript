@@ -10,6 +10,6 @@ export default defineConfig(
   eslintConfigPrettier,
   {
     // needs to be in its own object to act as global ignore
-    ignores: ['dist', '*.cjs'],
+    ignores: ['dist', '*.cjs', 'eslint.config.js', 'jest.config.js'],
   }
 );
