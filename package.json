@@ -8,7 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "lint": "eslint . --fix --max-warnings 0",
+    "lint": "oxlint --fix --deny-warnings",
     "format": "prettier --write \"./**/*.{js,json,md,ts,yaml,yml}\"",
     "test": "vitest run",
     "clean": "rimraf dist",
@@ -27,22 +27,18 @@
   "author": "luthium",
   "license": "MIT",
   "devDependencies": {
-    "@eslint/js": "9.39.2",
-    "@types/jest": "30.0.0",
-    "eslint": "9.39.2",
-    "eslint-config-prettier": "10.1.8",
     "husky": "9.1.7",
     "lint-staged": "16.2.7",
+    "oxlint": "1.36.0",
     "prettier": "3.7.4",
     "rimraf": "6.1.2",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.51.0",
     "vitest": "4.0.16"
   },
   "lint-staged": {
     "*.{ts,js}": [
       "prettier --write",
-      "eslint --fix --max-warnings 0 --no-warn-ignored"
+      "oxlint --fix --deny-warnings"
     ],
     "*.{json,md,yaml,yml}": "prettier --write"
   }

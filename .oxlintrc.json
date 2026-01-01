@@ -1,0 +1,4 @@
+{
+  "plugins": ["import", "jsdoc", "vitest"],
+  "ignorePatterns": ["dist/**", "*.cjs"]
+}

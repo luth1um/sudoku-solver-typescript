@@ -33,7 +33,7 @@ jobs:
         run: npm ci
 
       - name: Linting
-        run: npx eslint . --max-warnings 0
+        run: npx oxlint --deny-warnings --format=github
 
       - name: Check formatting
         run: npx prettier --check .

@@ -4,11 +4,6 @@ updates:
     directory: '/'
     schedule:
       interval: 'monthly'
-    groups:
-      eslint:
-        patterns:
-          - 'eslint'
-          - '@eslint/js'
     open-pull-requests-limit: 20
     versioning-strategy: increase
   - package-ecosystem: 'github-actions'
