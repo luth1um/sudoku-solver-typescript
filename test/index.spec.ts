@@ -1,3 +1,4 @@
+import { expect, test } from 'vitest';
 import { nextNumber, solveSudoku } from '../src/index';
 import { solveNextNumber } from '../src/sudoku-solver/next-number-solver';
 import { cloneSudoku } from '../src/sudoku-solver/solver-utils';

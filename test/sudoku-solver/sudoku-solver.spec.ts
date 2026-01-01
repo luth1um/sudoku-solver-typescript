@@ -1,3 +1,4 @@
+import { expect, test } from 'vitest';
 import { solveSudokuPuzzle } from '../../src/sudoku-solver/sudoku-solver';
 
 test('Sudoku solver should solve a valid Sudoku puzzle correctly', () => {

@@ -1,3 +1,4 @@
+import { expect, test } from 'vitest';
 import { solveNextNumber } from '../../src/sudoku-solver/next-number-solver';
 
 test('The next-number solver should return the correct next number', () => {
