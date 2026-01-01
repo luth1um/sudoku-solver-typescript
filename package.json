@@ -7,6 +7,11 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    }
+  },
   "scripts": {
     "lint": "oxlint --fix --deny-warnings",
     "format": "prettier --write \"./**/*.{js,json,md,ts,yaml,yml}\"",
