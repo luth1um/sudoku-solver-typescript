@@ -8,8 +8,8 @@ import {
   getPossibleEntries,
   isCorrectlySolved,
 } from '../../src/sudoku-solver/solver-utils';
-import { expect, test } from 'vitest';
 import { createSolutionForSolvableTestSudoku, createSolvableTestSudoku } from '../test-utils';
+import { expect, test } from 'vitest';
 
 test('getPossibleEntries() should return the correct entries', () => {
   // given
@@ -65,7 +65,7 @@ test('isCorrectlySolved() should mark a correctly solved Sudoku puzzle as correc
   const result: boolean = isCorrectlySolved(solvedSudoku);
 
   // then
-  expect(result).toBe(true);
+  expect(result).toBeTruthy();
 });
 
 test('isCorrectlySolved() should mark an incomplete Sudoku puzzle as not correctly solved', () => {
@@ -86,7 +86,7 @@ test('isCorrectlySolved() should mark an incomplete Sudoku puzzle as not correct
   const result: boolean = isCorrectlySolved(incompleteSudoku);
 
   // then
-  expect(result).toBe(false);
+  expect(result).toBeFalsy();
 });
 
 test('isCorrectlySolved() should mark an incorrect solution as not correctly solved', () => {
@@ -107,7 +107,7 @@ test('isCorrectlySolved() should mark an incorrect solution as not correctly sol
   const result: boolean = isCorrectlySolved(solvedSudoku);
 
   // then
-  expect(result).toBe(false);
+  expect(result).toBeFalsy();
 });
 
 test('allRowsValid() should return true if all rows are valid', () => {
@@ -118,7 +118,7 @@ test('allRowsValid() should return true if all rows are valid', () => {
   const result: boolean = allRowsValid(solvedSudoku);
 
   // then
-  expect(result).toBe(true);
+  expect(result).toBeTruthy();
 });
 
 test('allRowsValid() should return false if some rows are invalid', () => {
@@ -139,7 +139,7 @@ test('allRowsValid() should return false if some rows are invalid', () => {
   const result: boolean = allRowsValid(solvedSudoku);
 
   // then
-  expect(result).toBe(false);
+  expect(result).toBeFalsy();
 });
 
 test('allColumnsValid() should return true if all columns are valid', () => {
@@ -150,7 +150,7 @@ test('allColumnsValid() should return true if all columns are valid', () => {
   const result: boolean = allColumnsValid(solvedSudoku);
 
   // then
-  expect(result).toBe(true);
+  expect(result).toBeTruthy();
 });
 
 test('allColumnsValid() should return false if some columns are invalid', () => {
@@ -171,7 +171,7 @@ test('allColumnsValid() should return false if some columns are invalid', () => 
   const result: boolean = allColumnsValid(solvedSudoku);
 
   // then
-  expect(result).toBe(false);
+  expect(result).toBeFalsy();
 });
 
 test('allBoxesValid() should return true if all boxes are valid', () => {
@@ -182,7 +182,7 @@ test('allBoxesValid() should return true if all boxes are valid', () => {
   const result: boolean = allBoxesValid(solvedSudoku);
 
   // then
-  expect(result).toBe(true);
+  expect(result).toBeTruthy();
 });
 
 test('allBoxesValid() should return false if some boxes are invalid', () => {
@@ -203,7 +203,7 @@ test('allBoxesValid() should return false if some boxes are invalid', () => {
   const result: boolean = allBoxesValid(solvedSudoku);
 
   // then
-  expect(result).toBe(false);
+  expect(result).toBeFalsy();
 });
 
 test('getFirstRowOfBox() should return the correct first row of a box', () => {

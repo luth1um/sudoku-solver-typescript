@@ -1,11 +1,11 @@
-import { expect, test } from 'vitest';
-import { solveNextNumber } from '../../src/sudoku-solver/next-number-solver';
 import {
   createEmptyTestSudoku,
   createSolutionForSolvableTestSudoku,
   createSolvableTestSudoku,
   createUnsolvableTestSudoku,
 } from '../test-utils';
+import { expect, test } from 'vitest';
+import { solveNextNumber } from '../../src/sudoku-solver/next-number-solver';
 
 test('The next-number solver should return the correct next number', () => {
   // given
@@ -15,7 +15,7 @@ test('The next-number solver should return the correct next number', () => {
   const result = solveNextNumber(sudoku);
 
   // then
-  expect(result.isSolvable).toBe(true);
+  expect(result.isSolvable).toBeTruthy();
   expect(result.row).toBe(6);
   expect(result.column).toBe(3);
   expect(result.entry).toBe(4);
@@ -29,7 +29,7 @@ test('The next-number solver should mark an unsolvable Sudoku puzzle as unsolvab
   const result = solveNextNumber(unsolvableSudoku);
 
   // then
-  expect(result.isSolvable).toBe(false);
+  expect(result.isSolvable).toBeFalsy();
 });
 
 test('The next-number solver should calculate the first number for the empty Sudoku puzzle correctly', () => {
@@ -40,7 +40,7 @@ test('The next-number solver should calculate the first number for the empty Sud
   const result = solveNextNumber(emptySudoku);
 
   // then
-  expect(result.isSolvable).toBe(true);
+  expect(result.isSolvable).toBeTruthy();
   expect(result.row).toBe(0);
   expect(result.column).toBe(0);
   expect(result.entry).toBe(1);
@@ -54,7 +54,7 @@ test('The next-number solver should return {true, -1, -1, -1} in case the input 
   const result = solveNextNumber(sudoku);
 
   // then
-  expect(result.isSolvable).toBe(true);
+  expect(result.isSolvable).toBeTruthy();
   expect(result.row).toBe(-1);
   expect(result.column).toBe(-1);
   expect(result.entry).toBe(-1);
@@ -68,7 +68,7 @@ test('Repeated calls to the next-number solver should eventually result in a cor
   // when / then
   while (someEntriesLeft(sudoku)) {
     const nextEntry = solveNextNumber(sudoku);
-    expect(nextEntry.isSolvable).toBe(true);
+    expect(nextEntry.isSolvable).toBeTruthy();
     sudoku[nextEntry.row][nextEntry.column] = nextEntry.entry;
   }
 

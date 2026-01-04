@@ -1,8 +1,8 @@
+import { createSolutionForSolvableTestSudoku, createSolvableTestSudoku } from './test-utils';
 import { expect, test } from 'vitest';
 import { nextNumber, solveSudoku } from '../src';
-import { solveNextNumber } from '../src/sudoku-solver/next-number-solver';
 import { cloneSudoku } from '../src/sudoku-solver/solver-utils';
-import { createSolutionForSolvableTestSudoku, createSolvableTestSudoku } from './test-utils';
+import { solveNextNumber } from '../src/sudoku-solver/next-number-solver';
 
 test('The solver function in index.ts should call the internal solver and return the correct result (e2e test)', () => {
   // given
@@ -13,7 +13,7 @@ test('The solver function in index.ts should call the internal solver and return
   const result = solveSudoku(sudoku);
 
   // then
-  expect(result[0]).toBe(true);
+  expect(result[0]).toBeTruthy();
   expect(result[1]).toEqual(correctSolution);
 });
 
@@ -42,7 +42,7 @@ test('Repeatedly calling the next-number solver should eventually give the same 
 
   while (someEntriesLeft(cloneNextNumber)) {
     const nextEntry = solveNextNumber(cloneNextNumber);
-    expect(nextEntry.isSolvable).toBe(true);
+    expect(nextEntry.isSolvable).toBeTruthy();
     cloneNextNumber[nextEntry.row][nextEntry.column] = nextEntry.entry;
   }
 
