@@ -34,7 +34,7 @@
   "devDependencies": {
     "husky": "9.1.7",
     "lint-staged": "16.2.7",
-    "oxlint": "1.36.0",
+    "oxlint": "1.38.0",
     "prettier": "3.7.4",
     "rimraf": "6.1.2",
     "typescript": "5.9.3",
