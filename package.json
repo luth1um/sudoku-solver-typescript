@@ -35,10 +35,10 @@
     "husky": "9.1.7",
     "lint-staged": "16.2.7",
     "oxlint": "1.39.0",
-    "prettier": "3.8.0",
+    "prettier": "3.8.1",
     "rimraf": "6.1.2",
     "typescript": "5.9.3",
-    "vitest": "4.0.17"
+    "vitest": "4.0.18"
   },
   "lint-staged": {
     "*.{ts,js}": [
