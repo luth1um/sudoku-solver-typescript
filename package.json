@@ -2,6 +2,7 @@
   "name": "fast-sudoku-solver",
   "version": "3.0.1",
   "description": "A fast Sudoku solver written in TypeScript.",
+  "homepage": "https://github.com/luth1um/sudoku-solver-typescript#readme",
   "type": "module",
   "main": "dist/index.js",
   "files": [
@@ -22,7 +23,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luth1um/sudoku-solver-typescript"
+    "url": "git+https://github.com/luth1um/sudoku-solver-typescript.git"
+  },
+  "bugs": {
+    "url": "https://github.com/luth1um/sudoku-solver-typescript/issues"
   },
   "keywords": [
     "sudoku",
