@@ -1,6 +1,6 @@
 {
   "name": "fast-sudoku-solver",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "A fast Sudoku solver written in TypeScript.",
   "homepage": "https://github.com/luth1um/sudoku-solver-typescript#readme",
   "type": "module",
