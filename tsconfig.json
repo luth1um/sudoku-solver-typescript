@@ -2,10 +2,11 @@
   "include": ["src"],
   "compilerOptions": {
     "target": "es2018",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "declaration": true, // generate .d.ts files
     "sourceMap": true, // generate source map
     "inlineSources": true,
+    "rootDir": "src",
     "outDir": "dist", // output compiled js, d.ts, and source map to dist folder
     "strict": true,
     "esModuleInterop": true
