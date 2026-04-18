@@ -9,6 +9,8 @@ on:
       - main
   workflow_dispatch:
 
+permissions: {}
+
 env:
   HUSKY: 0
   NODE_VERSION: '24'
