@@ -11,6 +11,9 @@ updates:
     versioning-strategy: increase
   - package-ecosystem: 'github-actions'
     directory: '/'
+    groups:
+      patterns:
+        - 'github/codeql-action*'
     schedule:
       interval: 'weekly'
     cooldown:
