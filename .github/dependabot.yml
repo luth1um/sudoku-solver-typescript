@@ -7,13 +7,13 @@ updates:
     cooldown:
       default-days: 7
       semver-major-days: 28
-    open-pull-requests-limit: 20
     versioning-strategy: increase
   - package-ecosystem: 'github-actions'
     directory: '/'
     groups:
-      patterns:
-        - 'github/codeql-action*'
+      codeql:
+        patterns:
+          - 'github/codeql-action'
     schedule:
       interval: 'weekly'
     cooldown:
