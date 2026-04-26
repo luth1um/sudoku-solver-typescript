@@ -40,7 +40,7 @@
     "nano-staged": "^1.0.2",
     "oxlint": "^1.59.0",
     "prettier": "^3.8.3",
-    "typescript": "^6.0.2",
+    "typescript": "^6.0.3",
     "vitest": "^4.1.4"
   },
   "nano-staged": {
