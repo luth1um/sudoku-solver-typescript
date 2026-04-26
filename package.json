@@ -38,7 +38,7 @@
   "devDependencies": {
     "husky": "^9.1.7",
     "nano-staged": "^1.0.2",
-    "oxlint": "^1.59.0",
+    "oxlint": "^1.60.0",
     "prettier": "^3.8.3",
     "typescript": "^6.0.2",
     "vitest": "^4.1.4"
