@@ -1,5 +1,3 @@
-[![CI pipeline](https://github.com/luth1um/sudoku-solver-typescript/actions/workflows/pipeline.yml/badge.svg)](https://github.com/luth1um/sudoku-solver-typescript/actions/workflows/pipeline.yml)
-
 # 🤔 Sudoku Solver
 
 A [Sudoku](https://en.wikipedia.org/wiki/Sudoku) solver written in TypeScript. The solver applies optimized [backtracking](https://en.wikipedia.org/wiki/Backtracking) for solving puzzles. If you want to see the solver in action, you can visit [this website](https://luth1um.github.io/sudoku-solver-angular/).
