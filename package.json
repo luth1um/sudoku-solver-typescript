@@ -39,7 +39,7 @@
     "husky": "^9.1.7",
     "nano-staged": "^1.0.2",
     "oxlint": "^1.70.0",
-    "prettier": "^3.8.4",
+    "prettier": "^3.9.1",
     "typescript": "^6.0.3",
     "vitest": "^4.1.9"
   },
