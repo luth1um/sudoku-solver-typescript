@@ -49,5 +49,8 @@
       "oxlint --fix --deny-warnings"
     ],
     "*.{json,md,yaml,yml}": "prettier --write"
+  },
+  "allowScripts": {
+    "fsevents@2.3.3": true
   }
 }
