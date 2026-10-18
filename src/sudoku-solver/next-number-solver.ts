@@ -1,5 +1,5 @@
 import { cloneSudoku, getPossibleEntries, isCorrectlySolved } from './solver-utils';
-import { NextNumberResult } from '../index';
+import type { NextNumberResult } from '../index';
 
 /**
  * Calculates the next number for the specified Sudoku puzzle.

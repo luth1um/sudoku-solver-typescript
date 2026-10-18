@@ -4,21 +4,21 @@
   "description": "A fast Sudoku solver written in TypeScript.",
   "homepage": "https://github.com/luth1um/sudoku-solver-typescript#readme",
   "type": "module",
-  "main": "dist/index.js",
   "files": [
     "dist"
   ],
   "exports": {
-    ".": {
-      "import": "./dist/index.js"
-    }
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
   },
   "scripts": {
-    "lint": "oxlint --fix --deny-warnings",
-    "format": "prettier --write \"./**/*.{js,json,md,ts,yaml,yml}\"",
-    "test": "vitest run",
     "clean": "node -e \"['dist'].forEach(p => fs.rmSync(p, { recursive: true, force: true }))\"",
-    "build": "tsc",
+    "format": "prettier --write \"./**/*.{js,json,md,ts,yaml,yml}\"",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint --fix --deny-warnings",
+    "test": "vitest run",
+    "dev": "tsdown --watch",
+    "build": "tsdown",
     "prepare": "husky"
   },
   "repository": {
@@ -40,6 +40,7 @@
     "nano-staged": "^1.0.2",
     "oxlint": "^1.87.0",
     "prettier": "^3.9.10",
+    "tsdown": "^0.23.1",
     "typescript": "^7.0.2",
     "vitest": "^5.0.3"
   },

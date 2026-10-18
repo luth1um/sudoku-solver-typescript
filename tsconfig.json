@@ -1,14 +1,20 @@
 {
-  "include": ["src"],
+  "include": ["**/*.ts"],
   "compilerOptions": {
-    "target": "es2018",
+    "target": "es2025",
+    "lib": ["es2023"],
+    "moduleDetection": "force",
+    "module": "preserve",
     "moduleResolution": "bundler",
-    "declaration": true, // generate .d.ts files
-    "sourceMap": true, // generate source map
-    "inlineSources": true,
-    "rootDir": "src",
-    "outDir": "dist", // output compiled js, d.ts, and source map to dist folder
+    "resolveJsonModule": true,
     "strict": true,
-    "esModuleInterop": true
+    "noUnusedLocals": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "esModuleInterop": true,
+    "isolatedDeclarations": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true
   }
 }
